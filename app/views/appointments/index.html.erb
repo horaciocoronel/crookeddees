@@ -1,3 +1,12 @@
 <h2>Appointments</h2>
 
 <%= link_to 'New appointment', new_appointment_path %>
+<ul>
+  <% @appointments.each do |appointment| %>
+    <li>
+      <%= appointment.appointment_at %> with <%= appointment.dentist.name %>
+      <br>
+      <small><%= appointment.status.capitalize %></small>
+    </li>
+  <% end %>
+</ul>

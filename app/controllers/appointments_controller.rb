@@ -1,7 +1,8 @@
 class AppointmentsController < ApplicationController
-
+  before_action :require_logged_in
   def index
-    @appointments = Appointment.all
+    @appointments = current_user.appointments.all
+    # Appointment.where(user_id: current.user.id).all instead of filtering using this method we use the one above.
   end
 
   def new
@@ -18,6 +19,7 @@ class AppointmentsController < ApplicationController
       render :new
     end
   end
+
   private
 
   def appointment_params
