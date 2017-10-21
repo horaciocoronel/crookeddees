@@ -5,7 +5,8 @@
       <%= appointment.appointment_at %> with <%= appointment.dentist.name %>
       <br>
       <small><%= appointment.status.capitalize %></small> <br>
-      <%= link_to 'Confirm', confirm_admin_appointment_path(appointment), method: :post, class: 'btn btn-primary' %>
+      <%= link_to 'Confirm', confirm_admin_appointment_path(appointment), method: :post, class: 'btn btn-primary' %> |
+      <%= link_to 'Cancel', cancel_admin_appointment_path(appointment), method: :post, class: 'btn btn-danger' %>
     </li>
   <% end %>
 </ul>
